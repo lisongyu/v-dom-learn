@@ -11,4 +11,5 @@ var myVode2 = h('ul', {}, [
 
 
 ])
+console.log(33)
 console.log(myVode2)
