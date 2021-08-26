@@ -1,15 +1,34 @@
-import h from './mysnabbdom/h.js'
-
-var myVode1 = h('div', {}, [
-  h('p', {}, '哈哈')
-])
-
-var myVode2 = h('ul', {}, [
+import {
+  init,
+  classModule,
+  propsModule,
+  styleModule,
+  eventListenersModule,
+  h,
+} from "snabbdom";
+const patch = init([classModule, propsModule, styleModule, eventListenersModule])
+var myVnode1 = h('a', {
+  props: {
+    href: 'http://www.atguigu.com'
+  }
+}, '尚硅谷')
+var myVnode2 = h('div', {}, '我是一个盒子')
+var myVnode3 = h('ul', {}, [
   h('li', {}, '苹果'),
   h('li', {}, '西瓜'),
   h('li', {}, '香蕉')
-
-
 ])
-console.log(33)
-console.log(myVode2)
+
+var myVnode4 = h('ul', {}, [
+  h('li', {}, '苹果'),
+  h('li', {}, '西瓜'),
+  h('li', {}, '香蕉'),
+  h('li', {}, '桃子')
+])
+
+const container = document.getElementById('container')
+const btn = document.getElementById('btn')
+patch(container, myVnode3)
+btn.onclick = function () {
+  patch(myVnode3, myVnode4)
+}
