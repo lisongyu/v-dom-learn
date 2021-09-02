@@ -4,16 +4,18 @@ import patch from './mysnabbdom/patch.js'
 const myVnode1 = h('ul', {}, [
   h('li', { key: 'A' }, 'A'),
   h('li', { key: 'B' }, 'B'),
-  h('li', { key: 'C' }, 'C'),
-  h('li', { key: 'D' }, 'D')
+  h('li', { key: 'C' }, 'C')
+ 
 ]);
 
-// const myVnode2 = h('ul', {}, [
-//   h('li', { key: 'A' }, 'A'),
-//   h('li', { key: 'B' }, 'B'),
-//   h('li', { key: 'C' }, 'C'),
-// ]);
-const myVnode2 = h('ul', {}, '你好');
+const myVnode2 = h('ul', {}, [
+  h('li', { key: 'A' }, 'A'),
+  h('li', { key: 'B' }, 'B'),
+  h('li', { key: 'C' }, 'C'),
+  h('li', { key: 'D' }, 'D'),
+  h('li', { key: 'N' }, 'N')
+]);
+// const myVnode2 = h('ul', {}, '你好');
 const container = document.getElementById('container');
 const btn = document.getElementById('btn');
 patch(container, myVnode1)

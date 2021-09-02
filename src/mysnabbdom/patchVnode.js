@@ -1,3 +1,5 @@
+import createElement from "./createElement";
+import updateChildren from "./updateChildren";
 export default function patchVnode(oldVnode, newVnode) {
   // 判断新旧vnode是否是同一个对象
   if (oldVnode === newVnode) {
@@ -18,6 +20,8 @@ export default function patchVnode(oldVnode, newVnode) {
     // 判断老得有没有children
     if (oldVnode.children != undefined && oldVnode.children.length > 0) {
       // 老得有children,此时就是最复杂的情况，就是新老都有children
+      updateChildren(oldVnode.elm,oldVnode.children,newVnode.children)
+    
 
     } else {
       // 老得没有children，新的有children
